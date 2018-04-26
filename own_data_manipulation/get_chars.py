@@ -31,7 +31,8 @@ class TableParser(object):
                     img.crop((i, j, i + 146, j + 149)).save(data_path + str(counter) + '.jpg')
         return data_path
 
-    def center_chars(self, data_path):
+    @staticmethod
+    def center_chars(data_path):
         files = os.listdir(data_path)
         files = list(filter(lambda x: ".jpg" in x, files))
         for file in files:
