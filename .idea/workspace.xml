@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="515ba0d2-771e-47c3-b2f8-8e10a9920301" name="Default" comment="">
+    <list default="true" id="515ba0d2-771e-47c3-b2f8-8e10a9920301" name="Default" comment="Added class TableParser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess/convert_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess/convert_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_recognition/cut_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_recognition/cut_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neural_network/fisher_yates.py" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network/fisher_yates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neural_network/label_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network/label_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess/rename.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess/rename.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess/separate.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess/separate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,23 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cut_form.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/text_recognition/cut_form.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="get_chars.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/own_data_manipulation/get_chars.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="48">
+              <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -39,18 +29,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rotate_images.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocess/rotate_images.py">
+      <file leaf-file-name="label_images.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/neural_network/label_images.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+            <state relative-caret-position="187">
+              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="convert_image.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocess/convert_image.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -71,9 +56,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/prepare_dataset/label_images.py" />
-        <option value="$PROJECT_DIR$/preprocess/rename.py" />
         <option value="$PROJECT_DIR$/preprocess/rotate_images.py" />
-        <option value="$PROJECT_DIR$/preprocess/separate.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/form.py" />
         <option value="$PROJECT_DIR$/nn/model.py" />
@@ -81,13 +64,17 @@
         <option value="$PROJECT_DIR$/load.py" />
         <option value="$PROJECT_DIR$/own_data_preprocess/cut_table.py" />
         <option value="$PROJECT_DIR$/prepare_dataset/batches.py" />
-        <option value="$PROJECT_DIR$/neural_network/label_images.py" />
         <option value="$PROJECT_DIR$/own_data_preprocess/get_chars.py" />
         <option value="$PROJECT_DIR$/neural_network/train_main.py" />
         <option value="$PROJECT_DIR$/neural_network/batches.py" />
         <option value="$PROJECT_DIR$/neural_network/model.py" />
         <option value="$PROJECT_DIR$/preprocess/convert_image.py" />
         <option value="$PROJECT_DIR$/text_recognition/cut_form.py" />
+        <option value="$PROJECT_DIR$/own_data_manipulation/get_chars.py" />
+        <option value="$PROJECT_DIR$/neural_network/fisher_yates.py" />
+        <option value="$PROJECT_DIR$/preprocess/separate.py" />
+        <option value="$PROJECT_DIR$/preprocess/rename.py" />
+        <option value="$PROJECT_DIR$/neural_network/label_images.py" />
       </list>
     </option>
   </component>
@@ -246,6 +233,21 @@
       <option name="presentableId" value="Default" />
       <updated>1522963151863</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added class FormParser">
+      <created>1524770804381</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524770804381</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added class TableParser">
+      <created>1524771365812</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1524771365812</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -294,7 +296,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Added class FormParser" />
+    <MESSAGE value="Added class TableParser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added class TableParser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -534,27 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/fisher_yates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/separate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/rename.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/tensorflow/python/training/saver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -591,32 +574,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/label_images.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="883">
-          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/neural_network/batches.py" />
-    <entry file="file://$PROJECT_DIR$/neural_network/train_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/load.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="119" column="46" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
         </state>
       </provider>
     </entry>
@@ -627,26 +589,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/convert_image.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/own_data_manipulation/get_chars.py">
+    <entry file="file://$PROJECT_DIR$/text_recognition/cut_form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/text_recognition/cut_form.py">
+    <entry file="file://$PROJECT_DIR$/neural_network/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        <state relative-caret-position="1819">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/separate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/rename.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/convert_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neural_network/train_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neural_network/fisher_yates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/own_data_manipulation/get_chars.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neural_network/label_images.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>

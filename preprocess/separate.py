@@ -1,13 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr  2 18:25:19 2018
-
-@author: bulbu_000
-"""
 import os
-######
-# Делим изображение на тренировочные, тестировочные и валидационные. Параметры - пропорции и путь к папке, где они лежат.
-######
+
 
 def separate_prop(train_prop, test_prop, val_prop, path):
     ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
@@ -17,7 +9,6 @@ def separate_prop(train_prop, test_prop, val_prop, path):
     os.mkdir(path + 'val', mode=0o777)
     for char in ALPHABET:
         files_ch = list(filter(lambda x: char in x, files))
-        #print(files_ch)
         l = len(files_ch)
         i = 0
         for file in files_ch:
