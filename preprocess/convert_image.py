@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr  2 20:24:54 2018
-
-@author: bulbu_000
-"""
 from PIL import Image
 import os
 
