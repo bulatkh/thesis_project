@@ -6,7 +6,6 @@ data_path = 'C:\\Users\\User\\Desktop\\Thesis\\data\\'
 size = 56, 56
 
 
-
 print("Предобработка изображений..")
 print("Поворот:")
 rotate_images.rotate_images(initial_path, -24, 24, 2)

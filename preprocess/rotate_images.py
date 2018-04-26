@@ -3,8 +3,8 @@ import os
 
 
 def rotate_images(path, left, right, step):
-    ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
-    for char in ALPHABET:
+    alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
+    for char in alphabet:
         files = os.listdir(path + char)
         files = list(filter(lambda x: ".png" in x, files))
         counter = 0
