@@ -121,14 +121,10 @@ class Tester(object):
         print("Правильный ответ есть в отклике цепи в: " + str(accuracy_in_results * 100) + "%")
 
 
-saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
-data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
-
-
-# image, prediction = make_prediction(saved_nn, data_path + "Ж1.png")
-# plot_prediction(image, prediction)
-# analyze_prediction(prediction)
-tester_kaggle = Tester(saved_nn, data_path)
-tester_kaggle.count_accuracy()
-
-
+# saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
+# data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
+# image, prediction = Tester.make_prediction(saved_nn, data_path + "Ж1.png")
+# Tester.plot_prediction(image, prediction)
+# Tester.analyze_prediction(prediction)
+# tester_kaggle = Tester(saved_nn, data_path)
+# tester_kaggle.count_accuracy()
