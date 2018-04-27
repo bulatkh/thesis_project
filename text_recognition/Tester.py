@@ -80,11 +80,11 @@ class Tester(object):
 
     @staticmethod
     def analyze_prediction(prediction):
-        ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
+        alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
         ans = np.argmax(prediction)
         char_counter = 0
         char_dict = {}
-        for char in ALPHABET:
+        for char in alphabet:
             char_dict.update({char_counter: char})
             char_counter += 1
 

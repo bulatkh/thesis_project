@@ -36,7 +36,3 @@ class FormParser(object):
             img = Image.open(self.path + file, 'r')
             width, height = img.size
             img.crop((7, 7, width - 7, height - 7)).save(self.path + file)
-
-
-path = 'C:\\Users\\User\\Desktop\\Thesis\\forms\\'
-

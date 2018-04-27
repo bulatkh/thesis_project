@@ -1,6 +1,5 @@
 from numpy import array
-from neural_network import model
-from neural_network import label_images as li
+from neural_network import model, ImageLabel as li
 
 train_path = 'C:\\Users\\User\\Desktop\\\\Thesis\\data\\train\\'
 test_path = 'C:\\Users\\User\\Desktop\\\\Thesis\\data\\test\\'

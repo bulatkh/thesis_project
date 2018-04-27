@@ -39,7 +39,3 @@ class TableParser(object):
             img = Image.open(data_path + file, 'r')
             width, height = img.size
             img.crop((10, 10, width - 10, height - 10)).save(data_path + file)
-
-
-dir_path = 'C:\\Users\\User\\Desktop\\Thesis\\tables\\'
-
