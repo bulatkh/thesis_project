@@ -3,8 +3,8 @@ import os
 
 
 def rename_all(old_path, new_path):
-    ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
-    for char in ALPHABET:
+    alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
+    for char in alphabet:
         print(char + " перемещается..")
         files = os.listdir(old_path + char)
         files = list(filter(lambda x: ".png" in x, files))
@@ -33,12 +33,12 @@ def rotate_images(path, left, right, step):
 
 
 def separate_prop(train_prop, test_prop, val_prop, path):
-    ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
+    alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
     files = os.listdir(path)
     os.mkdir(path + 'train', mode=0o777)
     os.mkdir(path + 'test', mode=0o777)
     os.mkdir(path + 'val', mode=0o777)
-    for char in ALPHABET:
+    for char in alphabet:
         files_ch = list(filter(lambda x: char in x, files))
         l = len(files_ch)
         i = 0
