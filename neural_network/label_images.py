@@ -1,7 +1,7 @@
 import os
 import numpy as np
 from scipy import misc
-from neural_network import fisher_yates
+from random import randint
 
 
 class ImageLabel(object):
@@ -38,11 +38,24 @@ class ImageLabel(object):
             vector_labels.append(vector_tmp)
         return vector_labels
 
+    @staticmethod
+    def fisher_yates_shuffle(files, labels):
+        for i in range(len(files) - 1, 0, -1):
+            j = randint(0, i)
+            ImageLabel.swap(files, i, j)
+            ImageLabel.swap(labels, i, j)
+
+    @staticmethod
+    def swap(array, i, j):
+        tmp = array[i]
+        array[i] = array[j]
+        array[j] = tmp
+
     def read_images_with_labels(self):
-        files = list(filter(lambda x: ".png" in x, os.listdir(self.path)))
+        files = list(filter(lambda x: '.png' in x, os.listdir(self.path)))
         length = len(files)
         labels = ImageLabel.label_img(self.alphabet, self.path)
-        fisher_yates.fisher_yates_shuffle(files, labels)
+        ImageLabel.fisher_yates_shuffle(files, labels)
         labels = ImageLabel.make_vector_labels(labels)
         images = []
         counter = 0
