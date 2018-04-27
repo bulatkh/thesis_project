@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="515ba0d2-771e-47c3-b2f8-8e10a9920301" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network/fisher_yates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network/label_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network/label_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/load.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,46 +14,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rotate_images.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocess/rotate_images.py">
+      <file leaf-file-name="get_chars.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/own_data_manipulation/get_chars.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="92" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="convert_image.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocess/convert_image.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+            <state relative-caret-position="765">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="label_images.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/neural_network/label_images.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/neural_network/train_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,8 +29,17 @@
       <file leaf-file-name="preprocess_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocess/preprocess_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="323">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="load.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/load.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2142">
+              <caret line="131" column="30" lean-forward="true" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -90,22 +65,22 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/form.py" />
         <option value="$PROJECT_DIR$/nn/model.py" />
-        <option value="$PROJECT_DIR$/load.py" />
         <option value="$PROJECT_DIR$/own_data_preprocess/cut_table.py" />
         <option value="$PROJECT_DIR$/prepare_dataset/batches.py" />
         <option value="$PROJECT_DIR$/own_data_preprocess/get_chars.py" />
         <option value="$PROJECT_DIR$/neural_network/batches.py" />
         <option value="$PROJECT_DIR$/neural_network/model.py" />
-        <option value="$PROJECT_DIR$/text_recognition/cut_form.py" />
         <option value="$PROJECT_DIR$/preprocess/separate.py" />
         <option value="$PROJECT_DIR$/preprocess/rename.py" />
         <option value="$PROJECT_DIR$/own_data_manipulation/get_chars.py" />
         <option value="$PROJECT_DIR$/neural_network/train_main.py" />
         <option value="$PROJECT_DIR$/preprocess/convert_image.py" />
-        <option value="$PROJECT_DIR$/preprocess/preprocess_main.py" />
         <option value="$PROJECT_DIR$/preprocess/rotate_images.py" />
         <option value="$PROJECT_DIR$/neural_network/fisher_yates.py" />
         <option value="$PROJECT_DIR$/neural_network/label_images.py" />
+        <option value="$PROJECT_DIR$/text_recognition/cut_form.py" />
+        <option value="$PROJECT_DIR$/preprocess/preprocess_main.py" />
+        <option value="$PROJECT_DIR$/load.py" />
       </list>
     </option>
   </component>
@@ -145,7 +120,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.get_chars">
+  <component name="RunManager" selected="Python.load">
     <configuration name="cut_form" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="thesis_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -245,10 +220,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.load" />
         <item itemvalue="Python.get_chars" />
         <item itemvalue="Python.cut_form" />
         <item itemvalue="Python.cut_table" />
-        <item itemvalue="Python.load" />
         <item itemvalue="Python.train_main" />
       </list>
     </recent_temporary>
@@ -313,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524773901987</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="moved fisher_yates into ImageLabel class">
+      <created>1524809017383</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1524809017383</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -325,7 +307,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33931035" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33931035" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -350,10 +332,17 @@
     <MESSAGE value="Initialized classes ImageLabel" />
     <MESSAGE value="Added class ImageConverter" />
     <MESSAGE value="Warning cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Warning cleaning" />
+    <MESSAGE value="moved fisher_yates into ImageLabel class" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved fisher_yates into ImageLabel class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/load.py</url>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -361,7 +350,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -369,6 +358,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="12" column="75" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -383,6 +375,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -614,20 +609,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/neural_network/batches.py" />
-    <entry file="file://$PROJECT_DIR$/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="119" column="46" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/preprocess/separate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -642,17 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/text_recognition/cut_form.py">
+    <entry file="file://$PROJECT_DIR$/neural_network/fisher_yates.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="60" lean-forward="true" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/own_data_manipulation/get_chars.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -663,10 +637,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/preprocess_main.py">
+    <entry file="file://$PROJECT_DIR$/neural_network/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="388">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
         </state>
       </provider>
     </entry>
@@ -680,30 +654,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/fisher_yates.py">
+    <entry file="file://$PROJECT_DIR$/neural_network/label_images.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="731">
+          <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/convert_image.py">
+    <entry file="file://$PROJECT_DIR$/text_recognition/cut_form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        <state relative-caret-position="575">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/label_images.py">
+    <entry file="file://$PROJECT_DIR$/preprocess/convert_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/own_data_manipulation/get_chars.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/preprocess_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="131" column="30" lean-forward="true" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
         </state>
       </provider>
     </entry>
