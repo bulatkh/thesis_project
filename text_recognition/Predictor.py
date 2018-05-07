@@ -6,16 +6,27 @@ from PIL import Image
 import os
 
 
-class Tester(object):
+class Predictor(object):
     def __init__(self, nn_path, data_path):
         self.nn_path = nn_path
         self.data_path = data_path
 
     @staticmethod
+    def make_square(image, min_size=56, fill_color=(255, 255, 255)):
+        x, y = image.size
+        size = max(min_size, x, y)
+        new_image = Image.new('RGB', (size, size), fill_color)
+        new_image.paste(image, (round((size - x) / 2), round((size - y) / 2)))
+        return new_image
+
+    @staticmethod
     def make_prediction(image_path, nn_path):
         sample = Image.open(image_path)
+        sample = Predictor.make_square(sample)
         sample = sample.convert('L')
-        binary = sample.point(lambda x: 0 if x < 128 else 255, "1")
+        size = 56, 56
+        sample.thumbnail(size, Image.ANTIALIAS)
+        binary = sample.point(lambda pix: 0 if pix < 128 else 255, "1")
         binary.save(image_path)
 
         image = misc.imread(image_path)
@@ -123,7 +134,7 @@ class Tester(object):
 
 # saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
 # data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
-# image, prediction = Tester.make_prediction(saved_nn, data_path + "Ж1.png")
+# image, prediction = Predictor.make_prediction(saved_nn, data_path + "Ж1.png")
 # Tester.plot_prediction(image, prediction)
 # Tester.analyze_prediction(prediction)
 # tester_kaggle = Tester(saved_nn, data_path)

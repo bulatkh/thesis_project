@@ -4,7 +4,6 @@ initial_path = 'C:\\Users\\User\\Desktop\\Thesis\\Cyrillic\\Cyrillic\\'
 data_path = 'C:\\Users\\User\\Desktop\\Thesis\\data\\'
 size = 56, 56
 
-
 print("Предобработка изображений..")
 print("Поворот:")
 os_manipulation.rotate_images(initial_path, -24, 24, 2)
