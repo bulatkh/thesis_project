@@ -35,7 +35,7 @@ class FormParser(object):
         files = list(filter(lambda x: '.jpg' in x, files))
         for file in files:
             tmp_img = Image.open(self.filename[:-4] + '\\' + file, 'r')
-            tmp_img.convert('L')
+            tmp_img = tmp_img.convert('L')
             binary = tmp_img.point(lambda pix: 0 if pix < 128 else 255, "1")
             pixels = list(binary.getdata())
             sum = 0
