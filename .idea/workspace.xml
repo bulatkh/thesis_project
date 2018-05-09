@@ -4,6 +4,7 @@
     <list default="true" id="515ba0d2-771e-47c3-b2f8-8e10a9920301" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text_recognition/FormParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_recognition/FormParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_recognition/Predictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_recognition/Predictor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FormParser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FormParser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text_recognition/FormParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1015">
-              <caret line="108" column="41" lean-forward="true" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+            <state relative-caret-position="250">
+              <caret line="104" column="21" lean-forward="true" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="21" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -26,11 +27,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Predictor.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Predictor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/text_recognition/Predictor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2028">
-              <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            <state relative-caret-position="233">
+              <caret line="140" column="67" lean-forward="true" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/neural_network/model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="71" column="45" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="71" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,7 +187,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.FormParser">
+  <component name="RunManager" selected="Python.Predictor">
     <configuration name="FormParser" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="thesis_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,7 +206,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="cut_form" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Predictor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="thesis_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -205,7 +218,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\Desktop\Thesis\thesis_project\text_recognition\FormParser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/text_recognition/Predictor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -267,18 +280,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.load" />
-      <item itemvalue="Python.cut_form" />
       <item itemvalue="Python.get_chars" />
       <item itemvalue="Python.uplift_test" />
       <item itemvalue="Python.FormParser" />
+      <item itemvalue="Python.Predictor" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Predictor" />
         <item itemvalue="Python.FormParser" />
         <item itemvalue="Python.uplift_test" />
         <item itemvalue="Python.load" />
         <item itemvalue="Python.get_chars" />
-        <item itemvalue="Python.cut_form" />
       </list>
     </recent_temporary>
   </component>
@@ -412,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525861455379</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added encapsulation using properties">
+      <created>1525861754709</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1525861754709</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -478,7 +498,8 @@
     <MESSAGE value="Added removing of the empty cells" />
     <MESSAGE value="Added encapsulation using @property&#10;Return separately first and second names" />
     <MESSAGE value="Added print mode for analyzing prediction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added print mode for analyzing prediction" />
+    <MESSAGE value="Added encapsulation using properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added encapsulation using properties" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -688,9 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network/model.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/preprocess/TableParser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -754,20 +772,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/text_recognition/Predictor.py">
+    <entry file="file://$PROJECT_DIR$/neural_network/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2028">
-          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        <state relative-caret-position="306">
+          <caret line="71" column="45" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="71" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/text_recognition/FormParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1015">
-          <caret line="108" column="41" lean-forward="true" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+        <state relative-caret-position="250">
+          <caret line="104" column="21" lean-forward="true" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="21" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_recognition/Predictor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="140" column="67" lean-forward="true" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="67" />
         </state>
       </provider>
     </entry>

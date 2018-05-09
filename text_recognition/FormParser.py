@@ -1,6 +1,7 @@
 from PIL import Image
 from text_recognition import Predictor
 import os
+import time
 
 
 class FormParser(object):
@@ -101,6 +102,7 @@ if __name__ == '__main__':
     form_path = 'C:\\Users\\User\\Desktop\\Thesis\\forms\\1.jpg'
     nn_path = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
     parser = FormParser(form_path)
+    start_time = time.time()
     parser.get_chars()
     parser.cut_borders(parser.name_path)
     parser.cut_borders(parser.second_name_path)
@@ -108,3 +110,4 @@ if __name__ == '__main__':
     parser.delete_empty(parser.second_name_path)
     first, second = parser.get_full_name(nn_path)
     print(second + ' ' + first)
+    print("%s seconds" % (time.time() - start_time))
