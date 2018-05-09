@@ -32,9 +32,7 @@ class FormParser(object):
     def get_chars(self):
         img = Image.open(self.filename, 'r')
         os.mkdir(self.filename[:-4])
-        images = []
-        images.append(img.crop((147, 224, 1610, 300)))
-        images.append(img.crop((162, 465, 1590, 545)))
+        images = [img.crop((147, 224, 1610, 300)), img.crop((162, 465, 1590, 545))]
         counter = 0
         self.second_name_path = self.filename[:-4] + '\\second_name\\'
         self.name_path = self.filename[:-4] + '\\name\\'
@@ -89,7 +87,7 @@ class FormParser(object):
         for file in files:
             file = str(file) + '.jpg'
             _, prediction = predictor.make_prediction(path + '\\' + file, nn_path)
-            recognized_char, _ = predictor.analyze_prediction(prediction)
+            recognized_char, _ = predictor.analyze_prediction(prediction, '')
             final_answer.append(recognized_char)
         return ''.join(final_answer)
 
@@ -109,4 +107,4 @@ if __name__ == '__main__':
     parser.delete_empty(parser.name_path)
     parser.delete_empty(parser.second_name_path)
     first, second = parser.get_full_name(nn_path)
-    print(first + ' ' + second)
+    print(second + ' ' + first)
