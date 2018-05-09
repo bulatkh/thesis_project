@@ -90,7 +90,7 @@ class Predictor(object):
         plt.show()
 
     @staticmethod
-    def analyze_prediction(prediction):
+    def analyze_prediction(prediction, mode='print'):
         alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
         ans = np.argmax(prediction)
         char_counter = 0
@@ -101,11 +101,13 @@ class Predictor(object):
 
         ans_char = char_dict.get(ans)
         res_list = []
-        print("Ответ: " + char_dict.get(ans))
+        if mode == 'print':
+            print("Ответ: " + char_dict.get(ans))
         prediction_counter = 0
         for res in prediction[0]:
             if round(res, 2) > 0.1:
-                print('Вероятность буквы ' + str(char_dict.get(prediction_counter)) + ': ' + str(round(res * 100, 2)) + '%')
+                if mode == 'print':
+                    print('Вероятность буквы ' + str(char_dict.get(prediction_counter)) + ': ' + str(round(res * 100, 2)) + '%')
                 res_list.append(char_dict.get(prediction_counter))
             prediction_counter += 1
         return ans_char, res_list
@@ -132,10 +134,11 @@ class Predictor(object):
         print("Правильный ответ есть в отклике цепи в: " + str(accuracy_in_results * 100) + "%")
 
 
-# saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
-# data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
-# image, prediction = Predictor.make_prediction(saved_nn, data_path + "Ж1.png")
-# Tester.plot_prediction(image, prediction)
-# Tester.analyze_prediction(prediction)
-# tester_kaggle = Tester(saved_nn, data_path)
-# tester_kaggle.count_accuracy()
+if __name__ == '__main__':
+    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
+    data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
+    image, prediction = Predictor.make_prediction(saved_nn, data_path + "Ж1.png")
+    Predictor.plot_prediction(image, prediction)
+    Predictor.analyze_prediction(prediction)
+    tester_kaggle = Predictor(saved_nn, data_path)
+    tester_kaggle.count_accuracy()
