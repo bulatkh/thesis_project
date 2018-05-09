@@ -84,9 +84,11 @@ class Predictor(object):
         ax = fig.add_subplot(2, 1, 2)
         bar_list = ax.bar(np.arange(32), prediction[0], align='center')
         bar_list[ans].set_color('g')
-        ax.set_xticks(np.arange(32))
         ax.set_xlim([-1, 32])
         ax.grid('on')
+        alphabet_list = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У',
+         'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я']
+        plt.xticks(np.arange(32), alphabet_list)
         plt.show()
 
     @staticmethod
@@ -137,8 +139,8 @@ class Predictor(object):
 if __name__ == '__main__':
     saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
     data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
-    image, prediction = Predictor.make_prediction(saved_nn, data_path + "Ж1.png")
+    image, prediction = Predictor.make_prediction(data_path + "А1.png", saved_nn)
     Predictor.plot_prediction(image, prediction)
     Predictor.analyze_prediction(prediction)
-    tester_kaggle = Predictor(saved_nn, data_path)
-    tester_kaggle.count_accuracy()
+    # predictor_kaggle = Predictor(saved_nn, data_path)
+    # predictor_kaggle.count_accuracy()
