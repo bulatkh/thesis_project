@@ -3,9 +3,10 @@ import os
 
 
 class TableParser(object):
-    def __init__(self, path):
+    def __init__(self, path, des_path):
         self.path = path
         self.files = list(filter(lambda x: ".jpg" in x, os.listdir(self.path)))
+        self.des_path = des_path
 
     def cut_table(self):
         for file in self.files:
@@ -15,24 +16,57 @@ class TableParser(object):
 
     def cut_chars(self):
         counter = 0
-        os.mkdir(self.path + 'data', mode=0o777)
-        data_path = ''
         for file in self.files:
             img = Image.open(self.path + file, 'r')
             width, height = img.size
-
-            data_path = self.path + 'data' + '\\'
-            for i in range(0, width - 146, 146):
-                for j in range(0, height - 149, 149):
+            one_char_width = round(width / 10)
+            one_char_height = round(height / 14)
+            for i in range(0, width - one_char_width, one_char_width):
+                for j in range(0, height - one_char_height, one_char_height):
                     counter += 1
-                    img.crop((i, j, i + 146, j + 149)).save(data_path + str(counter) + '.jpg')
-        return data_path
+                    img.crop((i + 1, j + 1, i + one_char_width - 1, j + one_char_height - 1)).save(self.des_path + str(counter) + '.jpg')
 
-    @staticmethod
-    def center_chars(data_path):
-        files = os.listdir(data_path)
+    def center_chars(self, border_size):
+        files = os.listdir(self.des_path)
         files = list(filter(lambda x: ".jpg" in x, files))
         for file in files:
-            img = Image.open(data_path + file, 'r')
+            img = Image.open(self.des_path + file, 'r')
             width, height = img.size
-            img.crop((10, 10, width - 10, height - 10)).save(data_path + file)
+            img.crop((border_size, border_size, width - border_size, height - border_size)).save(self.des_path + file)
+
+    def cut_upper_part(self, cut_size):
+        files = os.listdir(self.des_path)
+        files = list(filter(lambda x: ".jpg" in x, files))
+        for file in files:
+            img = Image.open(self.des_path + file, 'r')
+            width, height = img.size
+            img.crop((0, cut_size, width, height)).save(self.des_path + file)
+
+    def cut_upper_part(self, cut_size):
+        files = os.listdir(self.des_path)
+        files = list(filter(lambda x: ".jpg" in x, files))
+        for file in files:
+            img = Image.open(self.des_path + file, 'r')
+            width, height = img.size
+            img.crop((0, cut_size, width, height)).save(self.des_path + file)
+
+    def cut_left_part(self, cut_size):
+        files = os.listdir(self.des_path)
+        files = list(filter(lambda x: ".jpg" in x, files))
+        for file in files:
+            img = Image.open(self.des_path + file, 'r')
+            width, height = img.size
+            img.crop((cut_size, 0, width, height)).save(self.des_path + file)
+
+
+
+if __name__ == '__main__':
+    alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
+    tables_path = 'C:\\Users\\User\\Desktop\\Thesis\\tables\\'
+    des_path = 'C:\\Users\\User\\Desktop\\Thesis\\own_data\\'
+    for char in alphabet:
+        parser = TableParser(tables_path + char + '\\', des_path + char + '\\')
+        # parser.cut_chars()
+        # parser.center_chars(7)
+        # parser.cut_upper_part(10)
+        parser.cut_left_part(10)
