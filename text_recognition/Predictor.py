@@ -4,6 +4,7 @@ from scipy import misc
 from matplotlib import pyplot as plt
 from PIL import Image
 import os
+import random
 
 
 class Predictor(object):
@@ -104,7 +105,8 @@ class Predictor(object):
         ans_char = char_dict.get(ans)
         res_list = []
         if mode == 'print':
-            print("Ответ: " + char_dict.get(ans))
+            print('----------------------------------')
+            print("Ответ нейронной сети: " + char_dict.get(ans))
         prediction_counter = 0
         for res in prediction[0]:
             if round(res, 2) > 0.1:
@@ -114,15 +116,19 @@ class Predictor(object):
             prediction_counter += 1
         return ans_char, res_list
 
-    def count_accuracy(self):
+    def count_accuracy(self, number, type):
         files = os.listdir(self.data_path)
-        files = list(filter(lambda x: ".png" in x, files))
+        files = list(filter(lambda x: type in x, files))
+        print(files[5000])
+        random.shuffle(files)
+        files = files[:number]
         number_of_images = len(files)
         counter_accuracy = 0
         counter_in_results = 0
         for file in files:
-            image, prediction = Tester.make_prediction(data_path + file, self.nn_path)
-            ans, res_list = Tester.analyze_prediction(prediction)
+            image, prediction = Predictor.make_prediction(data_path + file, self.nn_path)
+            ans, res_list = Predictor.analyze_prediction(prediction)
+            print('Правильный ответ: ' + file[:1])
             if str(ans) in file:
                 counter_accuracy += 1
             for res in res_list:
@@ -130,17 +136,23 @@ class Predictor(object):
                     counter_in_results += 1
         accuracy = counter_accuracy / number_of_images
         accuracy_in_results = counter_in_results / number_of_images
-        print('--------------------------')
+        print('----------------------------------')
         print("Точность распознавания: " + str(accuracy * 100) + "%")
-        print('--------------------------')
+        print('----------------------------------')
         print("Правильный ответ есть в отклике цепи в: " + str(accuracy_in_results * 100) + "%")
 
 
 if __name__ == '__main__':
-    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
-    data_path = 'C:\\Users\\User\\Desktop\\Thesis\\painted_chars\\'
-    image, prediction = Predictor.make_prediction(data_path + "А1.png", saved_nn)
-    Predictor.plot_prediction(image, prediction)
-    Predictor.analyze_prediction(prediction)
-    # predictor_kaggle = Predictor(saved_nn, data_path)
-    # predictor_kaggle.count_accuracy()
+    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\own_data\\own_data.ckpt-2323'
+    data_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\own_data\\val\\'
+    # files = list(filter(lambda x: '.jpg' in x, os.listdir(data_path)))
+    # random.shuffle(files)
+    # short_list = files[:100]
+    # for file in short_list:
+    #     image, prediction = Predictor.make_prediction(data_path + file, saved_nn)
+    #     # Predictor.plot_prediction(image, prediction)
+    #     Predictor.analyze_prediction(prediction)
+    # # predictor_kaggle = Predictor(saved_nn, data_path)
+    # # predictor_kaggle.count_accuracy()
+    predictor_own_data = Predictor(saved_nn, data_path)
+    predictor_own_data.count_accuracy(100, '.jpg')
