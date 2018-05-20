@@ -8,11 +8,12 @@ class ImageLabel(object):
 
     alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
 
-    def __init__(self, path):
+    def __init__(self, path, type):
         self.path = path
+        self.type = type
 
     @staticmethod
-    def label_img(alphabet, path):
+    def label_img(alphabet, path, type):
         i = 0
         char_numbers = {}
         for char in alphabet:
@@ -20,7 +21,7 @@ class ImageLabel(object):
             i += 1
         list_label = []
         files = os.listdir(path)
-        files = list(filter(lambda x: '.png' in x, files))
+        files = list(filter(lambda x: type in x, files))
         for file in files:
             list_label.append(char_numbers.get(file[0]))
         return list_label
@@ -52,9 +53,9 @@ class ImageLabel(object):
         array[j] = tmp
 
     def read_images_with_labels(self):
-        files = list(filter(lambda x: '.png' in x, os.listdir(self.path)))
+        files = list(filter(lambda x: self.type in x, os.listdir(self.path)))
         length = len(files)
-        labels = ImageLabel.label_img(self.alphabet, self.path)
+        labels = ImageLabel.label_img(self.alphabet, self.path, self.type)
         ImageLabel.fisher_yates_shuffle(files, labels)
         labels = ImageLabel.make_vector_labels(labels)
         images = []

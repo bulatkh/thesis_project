@@ -77,10 +77,10 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, learn_rate, train_
 
     summary_writer = tf.summary.FileWriter('../neural_network/logs/adam', sess.graph)
 
-    for i in range(round(len(train_x) / 256) - 1):
+    for i in range(round(len(train_x) / 64) - 1):
         test_count = 0
-        batch_xs = train_x[i: i + 256]
-        batch_ys = train_y[i: i + 256]
+        batch_xs = train_x[i: i + 64]
+        batch_ys = train_y[i: i + 64]
 
         _, loss_s = sess.run([train_step, loss_summary], feed_dict={x: batch_xs, y: batch_ys})
 
@@ -88,8 +88,8 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, learn_rate, train_
             summary_writer.add_summary(loss_s, i)
 
         if i % 100 == 0:
-            test_xs = test_x[test_count: test_count + 256]
-            test_ys = test_y[test_count: test_count + 256]
+            test_xs = test_x[test_count: test_count + 64]
+            test_ys = test_y[test_count: test_count + 64]
             test_count += 1
             acc, acc_s = sess.run([accuracy, accuracy_summary], feed_dict={x: test_xs, y: test_ys})
             print("[%s] Точность распознавания %s" % (i, acc))
