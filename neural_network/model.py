@@ -4,7 +4,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 
-def create_nn_and_train(size, out_size, conv_size, pool_size, learn_rate, train_x, train_y, test_x, test_y, val_x, val_y):
+def create_nn_and_train(size, out_size, conv_size, pool_size, batch_size, learn_rate, train_x, train_y, test_x, test_y, val_x, val_y):
     with tf.name_scope('input_layer'):
         x = tf.placeholder(tf.float32, [None, size, size], name='x')
         y = tf.placeholder(tf.float32, [None, out_size], name='y')
@@ -77,10 +77,10 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, learn_rate, train_
 
     summary_writer = tf.summary.FileWriter('../neural_network/logs/adam', sess.graph)
 
-    for i in range(round(len(train_x) / 64) - 1):
+    for i in range(round(len(train_x) / batch_size) - 1):
         test_count = 0
-        batch_xs = train_x[i: i + 64]
-        batch_ys = train_y[i: i + 64]
+        batch_xs = train_x[i: i + batch_size]
+        batch_ys = train_y[i: i + batch_size]
 
         _, loss_s = sess.run([train_step, loss_summary], feed_dict={x: batch_xs, y: batch_ys})
 
@@ -88,15 +88,15 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, learn_rate, train_
             summary_writer.add_summary(loss_s, i)
 
         if i % 100 == 0:
-            test_xs = test_x[test_count: test_count + 64]
-            test_ys = test_y[test_count: test_count + 64]
+            test_xs = test_x[test_count: test_count + batch_size]
+            test_ys = test_y[test_count: test_count + batch_size]
             test_count += 1
             acc, acc_s = sess.run([accuracy, accuracy_summary], feed_dict={x: test_xs, y: test_ys})
             print("[%s] Точность распознавания %s" % (i, acc))
 
     print('Финальная точность : %s' % sess.run(accuracy, feed_dict={
-        x: val_x[:100],
-        y: val_y[:100]
+        x: val_x[:batch_size],
+        y: val_y[:batch_size]
     }))
 
     tf.add_to_collection('weights', W_conv_0)
@@ -115,4 +115,4 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, learn_rate, train_
     nn_name = input("Имя нейросети:")
     os.mkdir('C:\\Users\\User\\Desktop\\\\Thesis\\trained_nn\\' + nn_name)
     saver.save(sess, 'C:\\Users\\User\\Desktop\\\\Thesis\\trained_nn\\' + nn_name + "\\" + nn_name + ".ckpt",
-               global_step=round(len(train_x) / 64))
+               global_step=round(len(train_x) / 256))

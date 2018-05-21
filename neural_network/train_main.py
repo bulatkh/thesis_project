@@ -23,7 +23,7 @@ val_images = array(val_images)
 val_labels = array(val_labels)
 
 print("Training started!")
-model.create_nn_and_train(56, 32, 5, 2, 0.001, train_images, train_labels, test_images, test_labels, val_images,
+model.create_nn_and_train(56, 32, 5, 2, 64, 0.001, train_images, train_labels, test_images, test_labels, val_images,
                           val_labels)
 
 
