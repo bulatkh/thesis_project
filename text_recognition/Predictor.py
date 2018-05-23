@@ -94,7 +94,7 @@ class Predictor(object):
 
     @staticmethod
     def analyze_prediction(prediction, mode='print'):
-        alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
+        alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
         ans = np.argmax(prediction)
         char_counter = 0
         char_dict = {}
@@ -116,10 +116,11 @@ class Predictor(object):
             prediction_counter += 1
         return ans_char, res_list
 
-    def count_accuracy(self, number, type):
+    def count_accuracy(self, number, type, char='0'):
         files = os.listdir(self.data_path)
         files = list(filter(lambda x: type in x, files))
-        print(files[5000])
+        if char != '0':
+            files = list(filter(lambda x: char in x, files))
         random.shuffle(files)
         files = files[:number]
         number_of_images = len(files)
@@ -128,6 +129,7 @@ class Predictor(object):
         for file in files:
             image, prediction = Predictor.make_prediction(data_path + file, self.nn_path)
             ans, res_list = Predictor.analyze_prediction(prediction)
+            # Predictor.plot_prediction(image, prediction)
             print('Правильный ответ: ' + file[:1])
             if str(ans) in file:
                 counter_accuracy += 1
@@ -143,7 +145,7 @@ class Predictor(object):
 
 
 if __name__ == '__main__':
-    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\own_data\\own_data.ckpt-2323'
+    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\own_data\\own_data.ckpt-4404'
     data_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\own_data\\val\\'
     # files = list(filter(lambda x: '.jpg' in x, os.listdir(data_path)))
     # random.shuffle(files)
@@ -155,4 +157,4 @@ if __name__ == '__main__':
     # # predictor_kaggle = Predictor(saved_nn, data_path)
     # # predictor_kaggle.count_accuracy()
     predictor_own_data = Predictor(saved_nn, data_path)
-    predictor_own_data.count_accuracy(100, '.jpg')
+    predictor_own_data.count_accuracy(100, '.jpg', 'А')

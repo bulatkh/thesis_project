@@ -33,8 +33,8 @@ class FormParser(object):
     def get_chars(self):
         img = Image.open(self.filename, 'r')
         os.mkdir(self.filename[:-4])
-        images = [img.crop((147, 224, 1610, 300)), img.crop((162, 465, 1590, 545))]
-        counter = 0
+        images = [img.crop((80, 315, 2120, 470)), img.crop((75, 545, 2110, 700))]
+        counter = 1
         self.second_name_path = self.filename[:-4] + '\\second_name\\'
         self.name_path = self.filename[:-4] + '\\name\\'
         os.mkdir(self.second_name_path)
@@ -42,9 +42,9 @@ class FormParser(object):
         for img in images:
             img.show()
             width, height = img.size
-            one_width = round(width / 20)
+            one_width = round(width / 15)
             for i in range(0, width - one_width, one_width):
-                    if counter < 20:
+                    if counter < 15:
                         img.crop((i, 0, i + one_width, height)).save(
                             self.second_name_path + str(counter) + '.jpg')
                     else:
@@ -100,14 +100,14 @@ class FormParser(object):
 
 if __name__ == '__main__':
     form_path = 'C:\\Users\\User\\Desktop\\Thesis\\forms\\1.jpg'
-    nn_path = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\kaggle\\bigbatch.ckpt-4126'
+    nn_path = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\own_data\\own_data.ckpt-4404'
     parser = FormParser(form_path)
-    start_time = time.time()
     parser.get_chars()
     parser.cut_borders(parser.name_path)
     parser.cut_borders(parser.second_name_path)
     parser.delete_empty(parser.name_path)
     parser.delete_empty(parser.second_name_path)
+    start_time = time.time()
     first, second = parser.get_full_name(nn_path)
     print(second + ' ' + first)
     print("%s seconds" % (time.time() - start_time))
