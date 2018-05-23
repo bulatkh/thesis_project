@@ -32,10 +32,9 @@ def rotate_images(path, left, right, step, type):
                     img = img.convert("RGBA").rotate(i)
                     new_img.paste(img, img)
                     if type == '.png':
-                        new_img.save(path + char + "\\" + str(counter) + str(i) + type, "PNG")
+                        new_img.save(path + char + "\\" + str(counter) + '_' + str(i) + type, "PNG")
                     elif type == '.jpg':
-                        new_img.save(path + char + "\\" + str(counter) + str(i) + type, "JPEG")
-
+                        new_img.save(path + char + "\\" + str(counter) + '_' + str(i) + type, "JPEG")
 
 
 def separate_prop(train_prop, test_prop, val_prop, path):
