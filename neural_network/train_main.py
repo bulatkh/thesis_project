@@ -2,9 +2,10 @@ from numpy import array
 from neural_network import model, ImageLabel as li
 import time
 
-train_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\kaggle_1\\train\\'
-test_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\kaggle_1\\test\\'
-val_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\kaggle_1\\val\\'
+dataset_path = input()
+train_path = dataset_path + 'train\\'
+test_path = dataset_path + 'test\\'
+val_path = dataset_path + 'val\\'
 
 label_start_time = time.time()
 print("-")
@@ -28,10 +29,9 @@ train_images = array(train_images)
 val_images = array(val_images)
 val_labels = array(val_labels)
 
-training_start_time = time.time()
+
 print("Training started!")
 model.create_nn_and_train(56, 32, 3, 2, 64, 0.001, train_images, train_labels, test_images, test_labels, val_images,
                           val_labels)
-training_finish_time = time.time()
-print('Время обучения сети: ' + str(training_finish_time - training_start_time))
+
 
