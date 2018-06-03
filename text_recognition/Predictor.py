@@ -57,14 +57,15 @@ class Predictor(object):
 
             conv_2_logit = tf.add(tf.nn.conv2d(h_pool_1, W[2], strides=[1, 1, 1, 1], padding='SAME'), b[2],
                                   name='logit')
+
             h_conv_2 = tf.nn.relu(conv_2_logit, name='relu')
 
             h_pool_2 = tf.nn.max_pool(h_conv_2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1],
                                       padding='SAME')
 
-            h_pool_2_flat = tf.reshape(h_pool_2, [-1, 7 * 7 * 128], name='flatten')
+            h_flat = tf.reshape(h_pool_2, [-1, 7 * 7 * 128], name='flatten')
 
-            fc_0_logit = tf.add(tf.matmul(h_pool_2_flat, W[3]), b[3], name='logit')
+            fc_0_logit = tf.add(tf.matmul(h_flat, W[3]), b[3], name='logit')
             h_fc_0 = tf.nn.relu(fc_0_logit, name='relu')
 
             logit_out = tf.add(tf.matmul(h_fc_0, W[4]), b[4], name='logit')
@@ -88,13 +89,13 @@ class Predictor(object):
         ax.set_xlim([-1, 32])
         ax.grid('on')
         alphabet_list = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У',
-         'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я']
+         'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я']
         plt.xticks(np.arange(32), alphabet_list)
         plt.show()
 
     @staticmethod
     def analyze_prediction(prediction, mode='print'):
-        alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+        alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ'
         ans = np.argmax(prediction)
         char_counter = 0
         char_dict = {}
@@ -116,11 +117,9 @@ class Predictor(object):
             prediction_counter += 1
         return ans_char, res_list
 
-    def count_accuracy(self, number, type, char='0'):
+    def count_accuracy(self, number, type):
         files = os.listdir(self.data_path)
         files = list(filter(lambda x: type in x, files))
-        if char != '0':
-            files = list(filter(lambda x: char in x, files))
         random.shuffle(files)
         files = files[:number]
         number_of_images = len(files)
@@ -142,11 +141,51 @@ class Predictor(object):
         print("Точность распознавания: " + str(accuracy * 100) + "%")
         print('----------------------------------')
         print("Правильный ответ есть в отклике цепи в: " + str(accuracy_in_results * 100) + "%")
+        return accuracy, accuracy_in_results
+
+    def count_char_accuracy(self, number, type, char):
+        files = os.listdir(self.data_path)
+        files = list(filter(lambda x: type in x, files))
+        files = list(filter(lambda x: char in x, files))
+        random.shuffle(files)
+        files = files[:number]
+        print(files)
+        number_of_images = len(files)
+        counter_accuracy = 0
+        counter_in_results = 0
+        error_dict = {}
+        for file in files:
+            image, prediction = Predictor.make_prediction(data_path + file, self.nn_path)
+            ans, res_list = Predictor.analyze_prediction(prediction)
+            Predictor.plot_prediction(image, prediction)
+            print('Правильный ответ: ' + file[:1])
+            if str(ans) in file:
+                counter_accuracy += 1
+            else:
+                if ans not in error_dict.keys():
+                    error_dict.update({ans: 1})
+                else:
+                    error_dict.update({ans: error_dict[ans] + 1})
+            for res in res_list:
+                if res in file:
+                    counter_in_results += 1
+        accuracy = counter_accuracy / number_of_images
+        accuracy_in_results = counter_in_results / number_of_images
+        print('----------------------------------')
+        print("Точность распознавания: " + str(accuracy * 100) + "%")
+        print('----------------------------------')
+        print("Правильный ответ есть в отклике цепи в: " + str(accuracy_in_results * 100) + "%")
+        errors = str(error_dict)
+        errors = errors.replace("'", "")
+        errors = errors.replace(",", ";")
+        errors = errors.replace(":", " -")
+        print("Наиболее частые совпадения: " + errors)
+        return accuracy, accuracy_in_results
 
 
 if __name__ == '__main__':
-    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\own_data\\own_data.ckpt-4404'
-    data_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\own_data\\val\\'
+    saved_nn = 'C:\\Users\\User\\Desktop\\Thesis\\trained_nn\\own_data235\\own_data235.ckpt-701'
+    data_path = 'C:\\Users\\User\\Desktop\\Thesis\\datasets\\own_data_2\\val\\'
     # files = list(filter(lambda x: '.jpg' in x, os.listdir(data_path)))
     # random.shuffle(files)
     # short_list = files[:100]
@@ -156,5 +195,17 @@ if __name__ == '__main__':
     #     Predictor.analyze_prediction(prediction)
     # # predictor_kaggle = Predictor(saved_nn, data_path)
     # # predictor_kaggle.count_accuracy()
-    predictor_own_data = Predictor(saved_nn, data_path)
-    predictor_own_data.count_accuracy(100, '.jpg', 'А')
+    sum_accuracy = 0
+    sum_accuracy_in_results = 0
+    number_of_exps = 1
+    for i in range(number_of_exps):
+        predictor_own_data = Predictor(saved_nn, data_path)
+        tmp_acc, tmp_acc_in_res = predictor_own_data.count_accuracy(100, '.jpg')
+        sum_accuracy += tmp_acc
+        sum_accuracy_in_results += tmp_acc_in_res
+
+    med_accuracy = sum_accuracy / number_of_exps
+    med_accuracy_in_results = sum_accuracy_in_results / number_of_exps
+
+    print('Средняя точность распознавания: ' + str(med_accuracy))
+    print('Правильный ответ есть в отклике цепи в среднем в ' + str(med_accuracy_in_results))
