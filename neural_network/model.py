@@ -1,10 +1,12 @@
 import tensorflow as tf
 import os
+import time
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 
 def create_nn_and_train(size, out_size, conv_size, pool_size, batch_size, learn_rate, train_x, train_y, test_x, test_y, val_x, val_y):
+    training_start_time = time.time()
     with tf.name_scope('input_layer'):
         x = tf.placeholder(tf.float32, [None, size, size], name='x')
         y = tf.placeholder(tf.float32, [None, out_size], name='y')
@@ -28,7 +30,7 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, batch_size, learn_
         h_conv_1 = tf.nn.relu(conv_1_logit, name='relu')
 
     with tf.name_scope('pool_layer-2'):
-        h_pool_1 = tf.nn.max_pool(h_conv_1, ksize=[1,pool_size,pool_size,1], strides=[1,pool_size,pool_size,1], padding='SAME')
+        h_pool_1 = tf.nn.max_pool(h_conv_1, ksize=[1, pool_size, pool_size, 1], strides=[1, pool_size, pool_size, 1], padding='SAME')
 
     with tf.name_scope('convolutional-layer-3'):
         with tf.name_scope('params'):
@@ -40,12 +42,19 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, batch_size, learn_
     with tf.name_scope('pool_layer-3'):
         h_pool_2 = tf.nn.max_pool(h_conv_2, ksize=[1, pool_size, pool_size, 1], strides=[1, pool_size, pool_size, 1], padding='SAME')
 
+    # with tf.name_scope('convolutional-layer-4'):
+    #     with tf.name_scope('params'):
+    #         W_conv_3 = tf.Variable(tf.truncated_normal([conv_size, conv_size, 128, 256], stddev=0.1), name='W')
+    #         b_conv_3 = tf.Variable(tf.constant(0.1, shape=[256]), name='b')
+    #     conv_3_logit = tf.add(tf.nn.conv2d(h_pool_2, W_conv_3, strides=[1, 1, 1, 1], padding='SAME'), b_conv_3, name='logit')
+    #     h_conv_3 = tf.nn.relu(conv_3_logit, name='relu')
+
     with tf.name_scope('fc-1'):
-        h_pool_2_flat = tf.reshape(h_pool_2, [-1, 7*7*128], name='flatten')
+        h_pool_3_flat = tf.reshape(h_pool_2, [-1, 7*7*128], name='flatten')
         with tf.name_scope('params'):
             W_fc_0 = tf.Variable(tf.truncated_normal([7*7*128, 256], stddev=0.1), name='W')
             b_fc_0 = tf.Variable(tf.constant(0.1, shape=[256]), name='b')
-        fc_0_logit = tf.add(tf.matmul(h_pool_2_flat, W_fc_0), b_fc_0, name='logit')
+        fc_0_logit = tf.add(tf.matmul(h_pool_3_flat, W_fc_0), b_fc_0, name='logit')
         h_fc_0 = tf.nn.relu(fc_0_logit, name='relu')
 
     with tf.name_scope('fc-2'):
@@ -102,14 +111,19 @@ def create_nn_and_train(size, out_size, conv_size, pool_size, batch_size, learn_
     tf.add_to_collection('weights', W_conv_0)
     tf.add_to_collection('weights', W_conv_1)
     tf.add_to_collection('weights', W_conv_2)
+    # tf.add_to_collection('weights', W_conv_3)
     tf.add_to_collection('weights', W_fc_0)
     tf.add_to_collection('weights', W_fc_1)
 
     tf.add_to_collection('biases', b_conv_0)
     tf.add_to_collection('biases', b_conv_1)
     tf.add_to_collection('biases', b_conv_2)
+    # tf.add_to_collection('biases', b_conv_3)
     tf.add_to_collection('biases', b_fc_0)
     tf.add_to_collection('biases', b_fc_1)
+
+    training_finish_time = time.time()
+    print('Время обучения сети: ' + str(training_finish_time - training_start_time))
 
     saver = tf.train.Saver(max_to_keep=1)
     nn_name = input("Имя нейросети:")
